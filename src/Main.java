@@ -6,7 +6,7 @@ public class Main {
     public static void calculating (String text , Map <Character, Integer> map) {
         for (int i = 0; i < text.length(); i++) {
             if (Character.isLetter(text.charAt(i))) {
-                map.put(text.charAt(i), + 1);
+                map.put(text.charAt(i), map.containsKey(text.charAt(i)) ? map.get(text.charAt(i)) + 1 : 1);
             }
         }
     }
@@ -24,6 +24,7 @@ public class Main {
                 letter = text.charAt(i);
             }
         }
+        System.out.println("Буква , использующаяся в тексте макс. кол-во раз : " + letter + " " + map.get(letter) + " раз(а)" );
         return map.get(letter);
     }
 
@@ -35,7 +36,7 @@ public class Main {
 
         calculating(text, map);
 
-        resultMax(map);
+        System.out.println(resultMax(map));
 
 
 
